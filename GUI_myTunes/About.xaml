@@ -9,7 +9,7 @@
         ResizeMode="NoResize">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Orientation="Vertical">
-            <Label FontSize="30">MyTunes</Label>
+            <Label FontSize="30">myTunes</Label>
             <Label>by Chasen Oliver and Daniel Steinmetz</Label>
         </StackPanel>
     </Grid>
