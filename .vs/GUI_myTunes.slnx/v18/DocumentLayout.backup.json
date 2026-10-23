@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\dsteinmetz\\source\\repos\\GUI_myTunes\\",
+  "WorkspaceRootPath": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A388A426-A690-412E-A166-BC33B479C274}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\dsteinmetz\\source\\repos\\gui_mytunes\\gui_mytunes\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A388A426-A690-412E-A166-BC33B479C274}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,23 +18,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GUI_myTunes\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml.cs",
+              "RelativeToolTip": "GUI_myTunes\\MainWindow.xaml.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-21T20:31:04.362Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\dsteinmetz\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "GUI_myTunes\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\dsteinmetz\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml.cs",
-              "RelativeToolTip": "GUI_myTunes\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-21T20:31:04.362Z",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "GUI_myTunes\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml",
+              "RelativeToolTip": "GUI_myTunes\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-22T17:41:25.011Z",
               "EditorCaption": ""
             }
           ]

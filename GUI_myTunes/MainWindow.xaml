@@ -7,6 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <DockPanel LastChildFill="True">
+            <ToolBar DockPanel.Dock="Top">
+                <Button Click="ImportMusicButton_Click" ToolTip="Import Music">
+                    <Image Source="/Images/newSong.png" Width="30" Height="30"/>
+                </Button>
+                <Button Click="CreatePlaylistButton_Click" ToolTip="Create Playlist">
+                    <Image Source="/Images/newPlaylist.png" Width="30" Height="30"/>
+                </Button>
+                <Button Click="InfoButton_Click" ToolTip="About">
+                    <Image Source="/Images/info.png" Width="30" Height="30"/>
+                </Button>
+            </ToolBar>
+            <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200" SelectionChanged="PlaylistListBox_SelectionChanged"/>
+            <DockPanel LastChildFill="True">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+                    <Button Content="Play" Click="PlayButton_Click" Width="100" Height="30" Margin="5"/>
+                    <Button Content="Stop" Click="StopButton_Click" Width="100" Height="30" Margin="5"/>
+                </StackPanel>
+                <DataGrid Name="songsDataGrid"/>
+            </DockPanel>
+        </DockPanel>
     </Grid>
 </Window>

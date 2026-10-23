@@ -9,7 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Images\tmp.txt" />
+    <None Remove="Images\info.png" />
+    <None Remove="Images\newPlaylist.png" />
+    <None Remove="Images\newSong.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\info.png" />
+    <Resource Include="Images\newPlaylist.png" />
+    <Resource Include="Images\newSong.png" />
   </ItemGroup>
 
   <ItemGroup>

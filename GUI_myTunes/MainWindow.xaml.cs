@@ -17,5 +17,35 @@ namespace GUI_myTunes
         {
             InitializeComponent();
         }
+
+        private void ImportMusicButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreatePlaylistButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PlaylistListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
