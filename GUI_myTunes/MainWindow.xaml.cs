@@ -34,6 +34,8 @@ namespace GUI_myTunes
             playlistListBox.ItemsSource = musicRepo.Playlists;
 
             musicPlayer.StateChanged += (s, e) => CommandManager.InvalidateRequerySuggested();
+
+            playlistListBox.SelectedIndex = 0;
         }
 
         // ai assisted
@@ -94,8 +96,37 @@ namespace GUI_myTunes
         // Chasen
         private void RemoveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            if (songsDataGrid.SelectedItem is not DataRowView row) return;
 
-            //songsDataGrid.SelectedItem = null;
+            object selectedPlaylist = playlistListBox.SelectedItem;
+
+            if (selectedPlaylist == null) return;
+
+            String? playlistName = selectedPlaylist.ToString();
+            int position = songsDataGrid.SelectedIndex;
+            int id = row.Row.Field<int>("id");
+            String? songName = row.Row.Field<String>("title");
+
+            if (playlistName == "All Music")
+            {
+                String message = "Are you sure you want to delete " + songName + " from " + playlistName + "?";
+                String title = "Confirm Delete";
+
+                MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    musicRepo.DeleteSong(id);
+                    UpdateMusicTable(musicRepo.SongTable);
+                    musicRepo.Save();
+                }
+            }
+            else if (playlistName != null)
+            {
+                musicRepo.RemoveSongFromPlaylist(position, id, playlistName);
+                UpdateMusicTable(musicRepo.SongsForPlaylist(playlistName));
+                musicRepo.Save();
+            }
         }
 
         // Chasen
