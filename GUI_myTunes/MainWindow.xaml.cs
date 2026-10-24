@@ -29,31 +29,37 @@ namespace GUI_myTunes
             playlistListBox.ItemsSource = musicRepo.Playlists;
         }
 
+        // Chasen
         private void ImportMusicButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        // Chasen
         private void CreatePlaylistButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        // Either
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        // Daniel
         private void PlaylistListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
+        // Daniel
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        // Daniel
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
 
