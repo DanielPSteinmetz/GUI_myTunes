@@ -45,6 +45,7 @@ namespace GUI_myTunes
             {
                 view.RowFilter = "";
                 songsDataGrid.ItemsSource = view;
+                return;
             }
 
             string escaped = EscapeLike(filter.Trim());
