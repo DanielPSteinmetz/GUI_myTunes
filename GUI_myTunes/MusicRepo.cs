@@ -422,8 +422,8 @@ namespace GUI_myTunes
         {
             // Create a table with song attributes and position
             DataTable table = new();
-            table.Columns.Add("id");
-            table.Columns.Add("position");
+            table.Columns.Add("id", typeof(int));
+            table.Columns.Add("position", typeof(int));
             table.Columns.Add("title");
             table.Columns.Add("artist");
             table.Columns.Add("album");

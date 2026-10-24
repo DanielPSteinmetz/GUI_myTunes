@@ -69,6 +69,13 @@ public class MusicPlayer : IDisposable
         return true;
     }
 
+    public void Close()
+    {
+        mediaPlayer.Close();
+        isPlaying = false;
+        mediaLoaded = false;
+    }
+
     public void Play()
     {
         if (!CanPlay) return;

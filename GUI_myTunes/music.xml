@@ -109,4 +109,9 @@
 		<playlist_name>Cool stuff!</playlist_name>
 		<position>6</position>
 	</playlist_song>
+	<playlist_song>
+		<song_id>18</song_id>
+		<playlist_name>Cool stuff!</playlist_name>
+		<position>7</position>
+	</playlist_song>
 </music>

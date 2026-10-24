@@ -20,7 +20,7 @@ namespace GUI_myTunes
         private MusicRepo musicRepo = new();
         private MusicPlayer musicPlayer = new();
         private DataTable currentMusicTable;
-        private string filter = ""; 
+        private string filter = "";
 
         public MainWindow()
         {
@@ -91,7 +91,7 @@ namespace GUI_myTunes
         // Chasen
         private void RemoveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            
+
         }
 
         // Chasen
@@ -126,6 +126,8 @@ namespace GUI_myTunes
 
         private void PlaylistListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            musicPlayer.Close();
+
             if (playlistListBox.SelectedItem is string selectedPlaylist)
             {
                 if (selectedPlaylist == "All Music")
@@ -140,11 +142,14 @@ namespace GUI_myTunes
 
         private void songsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (songsDataGrid.SelectedItem is DataRowView selectedRow)
+            if (songsDataGrid.SelectedItem is not DataRowView row) return;
+
+            int id = row.Row.Field<int>("id");
+
+            if (musicRepo.GetSong(id) is { } song)
             {
-                string filename = Convert.ToString(selectedRow["filename"]) ?? "";
-                musicPlayer.Open(filename);
-            }       
+                musicPlayer.Open(song.Filename);
+            }
         }
 
         private void PlayCommand_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -169,6 +174,6 @@ namespace GUI_myTunes
             stopButton.ToolTip = musicPlayer.StopDisabledReason;
         }
 
-        
+
     }
-}   
+}
