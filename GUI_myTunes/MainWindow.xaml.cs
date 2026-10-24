@@ -1,5 +1,6 @@
 ﻿using MiniPlayerWpf;
 using System.Data;
+using System.Drawing;
 using System.Numerics;
 using System.Text;
 using System.Windows;
@@ -11,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using TagLib.Jpeg;
 
 namespace GUI_myTunes
@@ -192,6 +194,42 @@ namespace GUI_myTunes
             stopButton.ToolTip = musicPlayer.StopDisabledReason;
         }
 
+        private void RenamePlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            RenameDialog renameDialog = new RenameDialog();
+            if (renameDialog.ShowDialog() == true)
+            {
+                string? oldName = playlistListBox.SelectedItem.ToString();
+                string newName = renameDialog.playlistName;
 
+                if (oldName != null && musicRepo.RenamePlaylist(oldName, newName))
+                {
+                    playlistListBox.ItemsSource = musicRepo.Playlists;
+                    musicRepo.Save();
+                }
+                else
+                {
+                    MessageBox.Show("Playlist names must be unique.");
+                }
+            }
+        }
+
+        private void DeletePlaylist_Click(object sender, RoutedEventArgs e)
+        {
+            String? playlistName = playlistListBox.SelectedItem.ToString();
+            String message = "Are you sure you want to delete " + playlistName + "?";
+            String title = "Confirm Delete";
+
+            MessageBoxResult result = MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                if (playlistName != null && musicRepo.DeletePlaylist(playlistName))
+                {
+                    playlistListBox.ItemsSource = musicRepo.Playlists;
+                    musicRepo.Save();
+                }
+            }
+        }
     }
 }

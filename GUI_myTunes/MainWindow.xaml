@@ -77,7 +77,14 @@
                          TextChanged="SearchBox_TextChanged"/>
                 </StackPanel>
             </Grid>
-            <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200" SelectionChanged="PlaylistListBox_SelectionChanged"/>
+            <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200" SelectionChanged="PlaylistListBox_SelectionChanged">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Rename" Click="RenamePlaylist_Click"/>
+                        <MenuItem Header="Delete" Click="DeletePlaylist_Click"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
+            </ListBox>
             <DockPanel LastChildFill="True">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
                     <Button Name="playButton" Content="Play" Command="Play" Style="{StaticResource PlayerButtonStyle}"/>
