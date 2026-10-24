@@ -25,7 +25,20 @@
                     <Button Content="Play" Click="PlayButton_Click" Width="100" Height="30" Margin="5"/>
                     <Button Content="Stop" Click="StopButton_Click" Width="100" Height="30" Margin="5"/>
                 </StackPanel>
-                <DataGrid Name="songsDataGrid"/>
+                <DataGrid 
+                    Name="songsDataGrid" 
+                    AutoGenerateColumns="False" 
+                    CanUserAddRows="False" 
+                    IsReadOnly="True" 
+                    SelectionMode="Single" 
+                >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Title"  Binding="{Binding title}"  Width="*" />
+                        <DataGridTextColumn Header="Artist" Binding="{Binding artist}" Width="*" />
+                        <DataGridTextColumn Header="Album"  Binding="{Binding album}"  Width="*" />
+                        <DataGridTextColumn Header="Genre"  Binding="{Binding genre}"  Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </DockPanel>
         </DockPanel>
     </Grid>

@@ -1,4 +1,4 @@
-﻿namespace WpfMusicRepoDemo
+﻿namespace GUI_myTunes
 {
     public class Song
     {

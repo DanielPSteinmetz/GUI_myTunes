@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Data;
 
-namespace WpfMusicRepoDemo
+namespace GUI_myTunes
 {
     public class MusicRepo
     {
@@ -20,7 +20,7 @@ namespace WpfMusicRepoDemo
                             select row["name"].ToString();
 
                 // Use the spread operator to convert IEnumerable to string array
-                return [.. playlists];
+                return ["All Music", .. playlists];
             }
         }
 
@@ -31,7 +31,7 @@ namespace WpfMusicRepoDemo
                 return musicDataSet.Tables["song"] ??
                     throw new InvalidOperationException("The 'song' table does not exist.");
             }
-        }
+        }   
 
         public MusicRepo()
         {

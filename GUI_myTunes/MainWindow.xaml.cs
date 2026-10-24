@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Data;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,9 +14,19 @@ namespace GUI_myTunes
 {
     public partial class MainWindow : Window
     {
+        private MusicRepo musicRepo;
+        private DataTable songTable;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            musicRepo = new();
+
+            songTable = musicRepo.SongTable;
+            songsDataGrid.ItemsSource = songTable.DefaultView;
+
+            playlistListBox.ItemsSource = musicRepo.Playlists;
         }
 
         private void ImportMusicButton_Click(object sender, RoutedEventArgs e)
@@ -48,4 +59,4 @@ namespace GUI_myTunes
 
         }
     }
-}
+}   
