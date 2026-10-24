@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:GUI_myTunes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="Play" Executed="PlayCommand_Executed" CanExecute="PlayCommand_CanExecute" />
+        <CommandBinding Command="Stop" Executed="StopCommand_Executed" CanExecute="StopCommand_CanExecute"/>
+    </Window.CommandBindings>
     <Grid>
         <DockPanel LastChildFill="True">
             <ToolBar DockPanel.Dock="Top">
@@ -22,10 +26,11 @@
             <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200" SelectionChanged="PlaylistListBox_SelectionChanged"/>
             <DockPanel LastChildFill="True">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
-                    <Button Content="Play" Click="PlayButton_Click" Width="100" Height="30" Margin="5"/>
-                    <Button Content="Stop" Click="StopButton_Click" Width="100" Height="30" Margin="5"/>
+                    <Button Name="playButton" Content="Play" Command="Play" Width="100" Height="30" Margin="5" ToolTipService.ShowOnDisabled="True"/>
+                    <Button Name="stopButton" Content="Stop" Command="Stop" Width="100" Height="30" Margin="5" ToolTipService.ShowOnDisabled="True"/>
                 </StackPanel>
                 <DataGrid 
+                    SelectionChanged="songsDataGrid_SelectionChanged"
                     Name="songsDataGrid" 
                     AutoGenerateColumns="False" 
                     CanUserAddRows="False" 

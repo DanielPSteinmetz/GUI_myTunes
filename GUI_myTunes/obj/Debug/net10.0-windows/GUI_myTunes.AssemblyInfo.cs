@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GUI_myTunes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d8e650f525308ece3e5f26eb73625d9a705edf6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+118cdea661fd9c9f447f8ff18efc2b5dd1b6c74e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GUI_myTunes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GUI_myTunes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
