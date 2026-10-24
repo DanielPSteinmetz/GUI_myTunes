@@ -12,17 +12,31 @@
     </Window.CommandBindings>
     <Grid>
         <DockPanel LastChildFill="True">
-            <ToolBar DockPanel.Dock="Top">
-                <Button Click="ImportMusicButton_Click" ToolTip="Import Music">
-                    <Image Source="/Images/newSong.png" Width="30" Height="30"/>
-                </Button>
-                <Button Click="CreatePlaylistButton_Click" ToolTip="Create Playlist">
-                    <Image Source="/Images/newPlaylist.png" Width="30" Height="30"/>
-                </Button>
-                <Button Click="InfoButton_Click" ToolTip="About">
-                    <Image Source="/Images/info.png" Width="30" Height="30"/>
-                </Button>
-            </ToolBar>
+            <Grid DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button Click="ImportMusicButton_Click" ToolTip="Import Music">
+                        <Image Source="/Images/newSong.png" Width="30" Height="30"/>
+                    </Button>
+                    <Button Click="CreatePlaylistButton_Click" ToolTip="Create Playlist">
+                        <Image Source="/Images/newPlaylist.png" Width="30" Height="30"/>
+                    </Button>
+                    <Button Click="InfoButton_Click" ToolTip="About">
+                        <Image Source="/Images/info.png" Width="30" Height="30"/>
+                    </Button>
+                </ToolBar>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+
+                    <Label Content="Filter:"/>
+                    <TextBox x:Name="SearchBox"
+                         Width="180"
+                         Height="25"
+                         
+                         
+                         Margin="0,0,15,0"
+                         TextChanged="SearchBox_TextChanged"/>
+                </StackPanel>
+            </Grid>
             <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200" SelectionChanged="PlaylistListBox_SelectionChanged"/>
             <DockPanel LastChildFill="True">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">

@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TagLib.Jpeg;
 
 namespace GUI_myTunes
 {
@@ -18,15 +19,67 @@ namespace GUI_myTunes
     {
         private MusicRepo musicRepo = new();
         private MusicPlayer musicPlayer = new();
+        private DataTable currentMusicTable;
+        private string filter = ""; 
 
         public MainWindow()
         {
             InitializeComponent();
 
-            songsDataGrid.ItemsSource = musicRepo.SongTable.DefaultView;
+            currentMusicTable = musicRepo.SongTable;
+            UpdateMusicTable(musicRepo.SongTable);
+
             playlistListBox.ItemsSource = musicRepo.Playlists;
 
             musicPlayer.StateChanged += (s, e) => CommandManager.InvalidateRequerySuggested();
+        }
+
+        // ai assisted
+        private void UpdateMusicTable(DataTable newTable)
+        {
+            currentMusicTable = newTable;
+
+            DataView view = newTable.DefaultView;
+
+            if (string.IsNullOrWhiteSpace(filter))
+            {
+                view.RowFilter = "";
+                songsDataGrid.ItemsSource = view;
+            }
+
+            string escaped = EscapeLike(filter.Trim());
+
+            view.RowFilter =
+                $"title LIKE '%{escaped}%' OR " +
+                $"artist LIKE '%{escaped}%' OR " +
+                $"album LIKE '%{escaped}%' OR " +
+                $"genre LIKE '%{escaped}%'";
+
+            songsDataGrid.ItemsSource = view;
+        }
+
+        private string EscapeLike(string value)
+        {
+            var sb = new StringBuilder();
+            foreach (char c in value)
+            {
+                switch (c)
+                {
+                    case '\'':
+                        sb.Append("''");
+                        break;
+                    case '*':
+                    case '%':
+                    case '[':
+                    case ']':
+                        sb.Append('[').Append(c).Append(']');
+                        break;
+                    default:
+                        sb.Append(c);
+                        break;
+                }
+            }
+            return sb.ToString();
         }
 
         // Chasen
@@ -48,18 +101,26 @@ namespace GUI_myTunes
 
         }
 
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                filter = textBox.Text;
+                UpdateMusicTable(currentMusicTable);
+            }
+        }
+
         private void PlaylistListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (playlistListBox.SelectedItem is string selectedPlaylist)
             {
                 if (selectedPlaylist == "All Music")
                 {
-                    songsDataGrid.ItemsSource = musicRepo.SongTable.DefaultView;
+                    UpdateMusicTable(musicRepo.SongTable);
                     return;
                 }
 
-                DataTable playlistSongs = musicRepo.SongsForPlaylist(selectedPlaylist);
-                songsDataGrid.ItemsSource = playlistSongs.DefaultView;
+                UpdateMusicTable(musicRepo.SongsForPlaylist(selectedPlaylist));
             }
         }
 
@@ -93,5 +154,7 @@ namespace GUI_myTunes
             e.CanExecute = musicPlayer.CanStop;
             stopButton.ToolTip = musicPlayer.StopDisabledReason;
         }
+
+        
     }
 }   
