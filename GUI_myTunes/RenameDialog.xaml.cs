@@ -18,7 +18,7 @@ namespace GUI_myTunes
     public partial class RenameDialog : Window
     {
 
-        string playlistName = "";
+        public string playlistName = "";
         public RenameDialog(String currentName = "")
         {
             InitializeComponent();
@@ -29,13 +29,19 @@ namespace GUI_myTunes
         }
 
 
-
-        private void SaveCommand_Executed(object sender, RoutedEventArgs e)
+        private void SaveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             playlistName = textBox.Text;
+            DialogResult = true;
             Close();
         }
-        private void CloseCommand_Executed(object sender, RoutedEventArgs e)
+
+        private void SaveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = (textBox.Text != "" && textBox.Text != "All Music");
+        }
+
+        private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Close();
         }

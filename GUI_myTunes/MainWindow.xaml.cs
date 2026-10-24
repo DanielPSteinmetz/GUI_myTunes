@@ -93,19 +93,36 @@ namespace GUI_myTunes
         private void RemoveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
 
+            //songsDataGrid.SelectedItem = null;
         }
 
         // Chasen
         // Song can only be removed if selected by datagrid
         private void RemoveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = songsDataGrid.SelectedItem != null;
         }
 
         // Dont allow creating "All Music"
         // Chasen
         private void CreatePlaylistButton_Click(object sender, RoutedEventArgs e)
         {
+            RenameDialog nameDialog = new RenameDialog();
+
+            if (nameDialog.ShowDialog() == true)
+            {
+                string name = nameDialog.playlistName;
+
+                if (musicRepo.AddPlaylist(name))
+                {
+                    playlistListBox.ItemsSource = musicRepo.Playlists;
+                    musicRepo.Save();
+                }
+                else
+                {
+                    MessageBox.Show("Playlist names must be unique.");
+                }
+            }
 
         }
 
