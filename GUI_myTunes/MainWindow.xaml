@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_myTunes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Icon="/Images/musicIcon.png" WindowStartupLocation="CenterScreen">
+        Title="YourTunes" Height="450" Width="800" Icon="/Images/musicIcon.png" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="PlayerButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="100"/>

@@ -248,6 +248,13 @@ namespace GUI_myTunes
         private void DeletePlaylist_Click(object sender, RoutedEventArgs e)
         {
             String? playlistName = playlistListBox.SelectedItem.ToString();
+
+            if (playlistName == "All Music")
+            {
+                MessageBox.Show("You can't delete " + playlistName, "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
             String message = "Are you sure you want to delete " + playlistName + "?";
             String title = "Confirm Delete";
 
