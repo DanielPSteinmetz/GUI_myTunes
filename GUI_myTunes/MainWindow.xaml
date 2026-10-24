@@ -5,10 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_myTunes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Icon="/Images/musicIcon.png" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="PlayerButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#3D7EBF"/>
+            <Setter Property="BorderBrush" Value="#2C5F94"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="1"
+                            CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#4F95DB"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#2C5F94"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="#C8CDD3"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#B0B6BD"/>
+                                <Setter Property="Foreground" Value="#8A9097"/>
+                                <Setter Property="Cursor" Value="Arrow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="Play" Executed="PlayCommand_Executed" CanExecute="PlayCommand_CanExecute" />
         <CommandBinding Command="Stop" Executed="StopCommand_Executed" CanExecute="StopCommand_CanExecute"/>
+        <CommandBinding Command="local:CustomCommands.Remove" Executed="RemoveCommand_Executed" CanExecute="RemoveCommand_CanExecute"/>
     </Window.CommandBindings>
     <Grid>
         <DockPanel LastChildFill="True">
@@ -31,8 +73,6 @@
                     <TextBox x:Name="SearchBox"
                          Width="180"
                          Height="25"
-                         
-                         
                          Margin="0,0,15,0"
                          TextChanged="SearchBox_TextChanged"/>
                 </StackPanel>
@@ -40,8 +80,8 @@
             <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200" SelectionChanged="PlaylistListBox_SelectionChanged"/>
             <DockPanel LastChildFill="True">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
-                    <Button Name="playButton" Content="Play" Command="Play" Width="100" Height="30" Margin="5" ToolTipService.ShowOnDisabled="True"/>
-                    <Button Name="stopButton" Content="Stop" Command="Stop" Width="100" Height="30" Margin="5" ToolTipService.ShowOnDisabled="True"/>
+                    <Button Name="playButton" Content="Play" Command="Play" Style="{StaticResource PlayerButtonStyle}"/>
+                    <Button Name="stopButton" Content="Stop" Command="Stop" Style="{StaticResource PlayerButtonStyle}"/>
                 </StackPanel>
                 <DataGrid 
                     SelectionChanged="songsDataGrid_SelectionChanged"
@@ -51,6 +91,13 @@
                     IsReadOnly="True" 
                     SelectionMode="Single" 
                 >
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="Play"/>
+                            <MenuItem Command="local:CustomCommands.Remove"/>
+                        </ContextMenu>
+
+                    </DataGrid.ContextMenu>
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Title"  Binding="{Binding title}"  Width="*" />
                         <DataGridTextColumn Header="Artist" Binding="{Binding artist}" Width="*" />

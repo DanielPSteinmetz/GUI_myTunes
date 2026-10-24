@@ -1,0 +1,28 @@
+﻿<Window x:Class="GUI_myTunes.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_myTunes"
+        mc:Ignorable="d"
+        Title="About" Height="238" Width="248" Icon="/Images/musicIcon.png" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <StackPanel>
+            <Label HorizontalAlignment="Center" Margin="0 20 0 0" FontSize="22" FontFamily="Verdana" FontStyle="Italic" FontWeight="Bold" Height="62">YourTunes</Label>
+            <StackPanel HorizontalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal">
+                    <Label FontStyle="Italic">By:</Label>
+                    <Label FontWeight="Bold">Chasen Oliver</Label>
+                </StackPanel>
+                <TextBlock 
+                    HorizontalAlignment="Center" 
+                    FontStyle="Italic" 
+                    Height="15"
+                    >&amp;</TextBlock>
+                <Label HorizontalAlignment="Center" FontWeight="Bold">Daniel Steinmetz</Label>
+            </StackPanel>
+        </StackPanel>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 10" Width="75" Height="25" IsDefault="True" Click="OkButton_Click">OK</Button>
+    </Grid>
+</Window>

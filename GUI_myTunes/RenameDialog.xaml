@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_myTunes"
         mc:Ignorable="d"
-        Title="Playlist Name" Height="250" Width="300">
+        Title="Playlist Name" Height="250" Width="300" Icon="/Images/musicIcon.png">
     <Window.CommandBindings>
         <CommandBinding Command="Save" Executed="SaveCommand_Executed"/>
         <CommandBinding Command="Close" Executed="CloseCommand_Executed"/>

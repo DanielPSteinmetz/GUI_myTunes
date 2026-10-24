@@ -88,6 +88,19 @@ namespace GUI_myTunes
 
         }
 
+        // Chasen
+        private void RemoveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            
+        }
+
+        // Chasen
+        // Song can only be removed if selected by datagrid
+        private void RemoveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
         // Dont allow creating "All Music"
         // Chasen
         private void CreatePlaylistButton_Click(object sender, RoutedEventArgs e)
@@ -95,10 +108,11 @@ namespace GUI_myTunes
 
         }
 
-        // Either
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var aboutWindow = new AboutWindow();
+            aboutWindow.Owner = this;
+            aboutWindow.ShowDialog();
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
