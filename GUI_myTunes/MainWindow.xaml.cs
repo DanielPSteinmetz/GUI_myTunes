@@ -13,7 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using TagLib;
 using TagLib.Jpeg;
+
+using Point = System.Windows.Point;
+using Vector = System.Windows.Vector;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace GUI_myTunes
 {
@@ -23,7 +28,7 @@ namespace GUI_myTunes
         private MusicPlayer musicPlayer = new();
         private DataTable currentMusicTable;
         private string filter = "";
-
+        private Point startPos;
         public MainWindow()
         {
             InitializeComponent();
@@ -203,6 +208,25 @@ namespace GUI_myTunes
             }
         }
 
+        private void songsDataGrid_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point currentPoint = e.GetPosition(null);
+            Vector diff = startPos - currentPoint;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                DragDrop.DoDragDrop(songsDataGrid, songsDataGrid.SelectedItem, DragDropEffects.Copy);
+            }
+        }
+
+        private void songsDataGrid_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPos = e.GetPosition(null);
+        }
+
+
         private void PlayCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             musicPlayer.Play();
@@ -267,6 +291,25 @@ namespace GUI_myTunes
                     playlistListBox.ItemsSource = musicRepo.Playlists;
                     musicRepo.Save();
                 }
+            }
+        }
+
+        private void playlistListBox_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.StringFormat))
+            {
+                string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
+            }
+        }
+
+        private void playlistListBox_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.None;
+
+            if (e.Data.GetDataPresent(DataFormats.StringFormat))
+            {
+                string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
+                e.Effects = DragDropEffects.Copy;
             }
         }
     }

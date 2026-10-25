@@ -77,7 +77,10 @@
                          TextChanged="SearchBox_TextChanged"/>
                 </StackPanel>
             </Grid>
-            <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200" SelectionChanged="PlaylistListBox_SelectionChanged">
+            <ListBox x:Name="playlistListBox" DockPanel.Dock="Left" Width="200"
+                     SelectionChanged="PlaylistListBox_SelectionChanged"
+                     AllowDrop="True"
+                     Drop="playlistListBox_Drop" DragOver="playlistListBox_DragOver">
                 <ListBox.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Rename" Click="RenamePlaylist_Click"/>
@@ -96,8 +99,9 @@
                     AutoGenerateColumns="False" 
                     CanUserAddRows="False" 
                     IsReadOnly="True" 
-                    SelectionMode="Single" 
-                >
+                    SelectionMode="Single"
+                    MouseMove="songsDataGrid_MouseMove"
+                    PreviewMouseLeftButtonDown="songsDataGrid_PreviewMouseLeftButtonDown">
                     <DataGrid.ContextMenu>
                         <ContextMenu>
                             <MenuItem Command="Play"/>
