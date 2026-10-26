@@ -7,4 +7,30 @@
 - Rename and Delete playlist logic
 - **Drag and drop:** B writes the drop logic (add the song ID to the end of the playlist via `MusicRepo`). A wires the `MouseMove` and `DragOver` handlers in the main window. Agree on one method signature up front, for example `AddSongToPlaylist(int songId, string playlistName)`.
 
-- Writing the readme (shared)
+- TODO: remove above contents when done
+
+# My Tunes
+Import music, make playlists, and play songs.
+
+## Authors
+### Chasen Oliver (50%)
+- **TODO**
+
+### Daniel Steinmetz (50%)
+- UI layout
+- Playlist ListBox initial population
+- Song DataGrid initial population
+- Song search filter
+- About window
+- Play/Stop implementation
+
+## Procrastination Penalty
+Did **not** meet requirements
+
+## Additional requirements
+- Renaming and deleting playlists
+- Play and Stop styling and commands
+- Song search filter
+
+
+
