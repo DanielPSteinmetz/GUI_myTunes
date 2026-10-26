@@ -92,13 +92,11 @@ namespace GUI_myTunes
             return sb.ToString();
         }
 
-        // Chasen
         private void ImportMusicButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        // Chasen
         private void RemoveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             if (songsDataGrid.SelectedItem is not DataRowView row) return;
@@ -134,15 +132,11 @@ namespace GUI_myTunes
             }
         }
 
-        // Chasen
-        // Song can only be removed if selected by datagrid
         private void RemoveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = songsDataGrid.SelectedItem != null;
         }
 
-        // Dont allow creating "All Music"
-        // Chasen
         private void CreatePlaylistButton_Click(object sender, RoutedEventArgs e)
         {
             RenameDialog nameDialog = new RenameDialog();
@@ -214,10 +208,12 @@ namespace GUI_myTunes
             Vector diff = startPos - currentPoint;
 
             if (e.LeftButton == MouseButtonState.Pressed &&
+                songsDataGrid.SelectedItem is DataRowView row &&
                 (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
                 Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
             {
-                DragDrop.DoDragDrop(songsDataGrid, songsDataGrid.SelectedItem, DragDropEffects.Copy);
+                int id = row.Row.Field<int>("id");
+                DragDrop.DoDragDrop(songsDataGrid, new DataObject("songId", id), DragDropEffects.Copy);
             }
         }
 
@@ -294,23 +290,78 @@ namespace GUI_myTunes
             }
         }
 
+        // asked ai how to find what playlist was dropped into
+        private T FindParent<T>(DependencyObject child)
+            where T : DependencyObject
+        {
+            while (child != null)
+            {
+                if (child is T parent)
+                    return parent;
+
+                child = VisualTreeHelper.GetParent(child);
+            }
+
+            return null;
+        }
+
         private void playlistListBox_Drop(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.StringFormat))
+            if (!e.Data.GetDataPresent("songId"))
             {
-                string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
+                return;
+            }
+
+            if (e.Data.GetData("songId") is not int songId)
+            {
+                return;
+            }
+
+            if (e.OriginalSource is not DependencyObject source)
+            {
+                return;
+            }
+
+
+            ListBoxItem item = FindParent<ListBoxItem>(source);
+
+            if (item == null)
+            {
+                return;
+            }
+
+            string? playlistName = item.Content.ToString();
+
+            if (playlistName == "All Music" || playlistName == null)
+            {
+                return;
+            }
+
+            musicRepo.AddSongToPlaylist(songId, playlistName);
+            musicRepo.Save();
+            
+            if (playlistListBox.SelectedItem?.ToString() == playlistName)
+            {
+                UpdateMusicTable(musicRepo.SongsForPlaylist(playlistName));
             }
         }
 
         private void playlistListBox_DragOver(object sender, DragEventArgs e)
         {
-            e.Effects = DragDropEffects.None;
-
-            if (e.Data.GetDataPresent(DataFormats.StringFormat))
+            if (e.Data.GetDataPresent("songId"))
             {
-                string dataString = (string)e.Data.GetData(DataFormats.StringFormat);
                 e.Effects = DragDropEffects.Copy;
             }
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+            e.Handled = true;
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            musicRepo.Save();
         }
     }
 }
