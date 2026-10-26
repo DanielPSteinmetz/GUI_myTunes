@@ -134,7 +134,7 @@ namespace GUI_myTunes
             if (selectedPlaylist == null) return;
 
             String? playlistName = selectedPlaylist.ToString();
-            int position = songsDataGrid.SelectedIndex;
+            int position = row.Row.Field<int>("position");
             int id = row.Row.Field<int>("id");
             String? songName = row.Row.Field<String>("title");
 
@@ -168,6 +168,7 @@ namespace GUI_myTunes
         private void CreatePlaylistButton_Click(object sender, RoutedEventArgs e)
         {
             RenameDialog nameDialog = new RenameDialog();
+            nameDialog.Owner = this;
 
             if (nameDialog.ShowDialog() == true)
             {
@@ -276,6 +277,7 @@ namespace GUI_myTunes
         private void RenamePlaylist_Click(object sender, RoutedEventArgs e)
         {
             RenameDialog renameDialog = new RenameDialog();
+            renameDialog.Owner = this;
             if (renameDialog.ShowDialog() == true)
             {
                 string? oldName = playlistListBox.SelectedItem.ToString();
@@ -319,7 +321,7 @@ namespace GUI_myTunes
         }
 
         // asked ai how to find what playlist was dropped into
-        private T FindParent<T>(DependencyObject child)
+        private T? FindParent<T>(DependencyObject child)
             where T : DependencyObject
         {
             while (child != null)
@@ -351,7 +353,7 @@ namespace GUI_myTunes
             }
 
 
-            ListBoxItem item = FindParent<ListBoxItem>(source);
+            ListBoxItem? item = FindParent<ListBoxItem>(source);
 
             if (item == null)
             {

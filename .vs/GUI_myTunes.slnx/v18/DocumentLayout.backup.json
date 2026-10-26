@@ -11,12 +11,8 @@
       "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\musicrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\musicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\musicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\renamedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\renamedialog.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -25,6 +21,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\music.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\music.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\musicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\musicplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|c:\\users\\marie\\source\\repos\\gui_mytunes\\gui_mytunes\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F45C6785-0F4E-CAFC-7612-B14C40BCE781}|GUI_myTunes\\GUI_myTunes.csproj|solutionrelative:gui_mytunes\\song.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,20 +46,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "music.xml",
-              "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\music.xml",
-              "RelativeDocumentMoniker": "GUI_myTunes\\music.xml",
-              "ToolTip": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\music.xml",
-              "RelativeToolTip": "GUI_myTunes\\music.xml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2026-10-24T04:19:34.63Z",
+              "DocumentIndex": 2,
+              "Title": "RenameDialog.xaml",
+              "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\RenameDialog.xaml",
+              "RelativeDocumentMoniker": "GUI_myTunes\\RenameDialog.xaml",
+              "ToolTip": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\RenameDialog.xaml",
+              "RelativeToolTip": "GUI_myTunes\\RenameDialog.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-26T23:28:29.763Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "music.xml",
+              "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\music.xml",
+              "RelativeDocumentMoniker": "GUI_myTunes\\music.xml",
+              "ToolTip": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\music.xml",
+              "RelativeToolTip": "GUI_myTunes\\music.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-10-24T04:19:34.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml",
               "RelativeDocumentMoniker": "GUI_myTunes\\MainWindow.xaml",
@@ -73,14 +88,14 @@
               "RelativeDocumentMoniker": "GUI_myTunes\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MainWindow.xaml.cs",
               "RelativeToolTip": "GUI_myTunes\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAMwJQAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAAAIgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-21T20:31:04.362Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MusicPlayer.cs",
               "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MusicPlayer.cs",
               "RelativeDocumentMoniker": "GUI_myTunes\\MusicPlayer.cs",
@@ -88,12 +103,11 @@
               "RelativeToolTip": "GUI_myTunes\\MusicPlayer.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAowE4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-24T01:08:42.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-24T01:08:42.878Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Song.cs",
               "DocumentMoniker": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\Song.cs",
               "RelativeDocumentMoniker": "GUI_myTunes\\Song.cs",
@@ -101,8 +115,7 @@
               "RelativeToolTip": "GUI_myTunes\\Song.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-23T23:39:24.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-23T23:39:24.426Z"
             },
             {
               "$type": "Document",
@@ -112,7 +125,7 @@
               "RelativeDocumentMoniker": "GUI_myTunes\\MusicRepo.cs",
               "ToolTip": "C:\\Users\\Marie\\source\\repos\\GUI_myTunes\\GUI_myTunes\\MusicRepo.cs",
               "RelativeToolTip": "GUI_myTunes\\MusicRepo.cs",
-              "ViewState": "AgIAALQBAAAAAAAAAAAcwLUBAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAALgBAAAAAAAAAAAqwNEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-23T23:38:57.726Z",
               "EditorCaption": ""
