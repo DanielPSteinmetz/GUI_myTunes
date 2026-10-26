@@ -19,6 +19,7 @@ using TagLib.Jpeg;
 using Point = System.Windows.Point;
 using Vector = System.Windows.Vector;
 using TextBox = System.Windows.Controls.TextBox;
+using Microsoft.Win32;
 
 namespace GUI_myTunes
 {
@@ -92,9 +93,36 @@ namespace GUI_myTunes
             return sb.ToString();
         }
 
+
+        // https://learn.microsoft.com/en-us/dotnet/desktop/wpf/windows/how-to-open-common-system-dialog-box
         private void ImportMusicButton_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.DefaultExt = ".mp3";
 
+            // https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.filedialog.filter?view=windowsdesktop-10.0
+            dialog.Filter = "Audio Files (*.mp3;*.m4a;*.wma;*.wav)|*.mp3;*.m4a;*.wma;*.wav|All Files (*.*)|*.*";
+
+            bool? result = dialog.ShowDialog();
+
+            if (result == true)
+            {
+                string filename = dialog.FileName;
+                Song newSong = musicRepo.AddSong(filename);
+                int newSongId = newSong.Id;
+
+                musicRepo.Save();
+                UpdateMusicTable(musicRepo.SongTable);
+
+                foreach (var item in songsDataGrid.Items)
+                {
+                    if (item is DataRowView row && row.Row.Field<int>("id") == newSongId)
+                    {
+                        songsDataGrid.SelectedItem = item;
+                        break;
+                    }
+                }
+            }
         }
 
         private void RemoveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
