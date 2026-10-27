@@ -114,6 +114,9 @@ namespace GUI_myTunes
                 musicRepo.Save();
                 UpdateMusicTable(musicRepo.SongTable);
 
+                // we show the new "All Music" playlist, so select it as well
+                playlistListBox.SelectedIndex = 0;
+
                 foreach (var item in songsDataGrid.Items)
                 {
                     if (item is DataRowView row && row.Row.Field<int>("id") == newSongId)
