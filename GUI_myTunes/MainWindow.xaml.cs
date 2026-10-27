@@ -274,7 +274,8 @@ namespace GUI_myTunes
             stopButton.ToolTip = musicPlayer.StopDisabledReason;
         }
 
-        private void RenamePlaylist_Click(object sender, RoutedEventArgs e)
+
+        private void RenameCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             RenameDialog renameDialog = new RenameDialog();
             renameDialog.Owner = this;
@@ -295,15 +296,15 @@ namespace GUI_myTunes
             }
         }
 
-        private void DeletePlaylist_Click(object sender, RoutedEventArgs e)
+        private void RenameCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = playlistListBox.SelectedItem != null && playlistListBox.SelectedItem.ToString() != "All Music";
+        }
+
+
+        private void DeleteCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             String? playlistName = playlistListBox.SelectedItem.ToString();
-
-            if (playlistName == "All Music")
-            {
-                MessageBox.Show("You can't delete " + playlistName, "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return;
-            }
 
             String message = "Are you sure you want to delete " + playlistName + "?";
             String title = "Confirm Delete";
@@ -318,6 +319,11 @@ namespace GUI_myTunes
                     musicRepo.Save();
                 }
             }
+        }
+
+        private void DeleteCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = playlistListBox.SelectedItem != null && playlistListBox.SelectedItem.ToString() != "All Music";
         }
 
         // asked ai how to find what playlist was dropped into
@@ -393,5 +399,7 @@ namespace GUI_myTunes
         {
             musicRepo.Save();
         }
+
+
     }
 }

@@ -52,6 +52,8 @@
         <CommandBinding Command="Play" Executed="PlayCommand_Executed" CanExecute="PlayCommand_CanExecute" />
         <CommandBinding Command="Stop" Executed="StopCommand_Executed" CanExecute="StopCommand_CanExecute"/>
         <CommandBinding Command="local:CustomCommands.Remove" Executed="RemoveCommand_Executed" CanExecute="RemoveCommand_CanExecute"/>
+        <CommandBinding Command="local:CustomCommands.Rename" Executed="RenameCommand_Executed" CanExecute="RenameCommand_CanExecute"/>
+        <CommandBinding Command="local:CustomCommands.Delete" Executed="DeleteCommand_Executed" CanExecute="DeleteCommand_CanExecute"/>
     </Window.CommandBindings>
     <Grid>
         <DockPanel LastChildFill="True">
@@ -84,8 +86,8 @@
                      Drop="playlistListBox_Drop" DragOver="playlistListBox_DragOver">
                 <ListBox.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Rename" Click="RenamePlaylist_Click"/>
-                        <MenuItem Header="Delete" Click="DeletePlaylist_Click"/>
+                        <MenuItem Header="Rename" Command="local:CustomCommands.Rename"/>
+                        <MenuItem Header="Delete" Command="local:CustomCommands.Delete"/>
                     </ContextMenu>
                 </ListBox.ContextMenu>
             </ListBox>
