@@ -134,7 +134,6 @@ namespace GUI_myTunes
             if (selectedPlaylist == null) return;
 
             String? playlistName = selectedPlaylist.ToString();
-            int position = row.Row.Field<int>("position");
             int id = row.Row.Field<int>("id");
             String? songName = row.Row.Field<String>("title");
 
@@ -154,6 +153,7 @@ namespace GUI_myTunes
             }
             else if (playlistName != null)
             {
+                int position = row.Row.Field<int>("position");
                 musicRepo.RemoveSongFromPlaylist(position, id, playlistName);
                 UpdateMusicTable(musicRepo.SongsForPlaylist(playlistName));
                 musicRepo.Save();
